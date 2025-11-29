@@ -12,6 +12,7 @@ public class InsuranceQuoteService {
     @Autowired
     private InsuranceQuoteRepo insuranceQuoteRepo;
 
+//    Logic to  get insurance quotation and calculating the final premium and storing it in db
     public String addInsuranceQuote(InsuranceQuoteInputDto insuranceQuoteInputDto){
         Double basePremium = insuranceQuoteInputDto.getBasePremium();
         Double finalPremium = basePremium;
@@ -33,7 +34,7 @@ public class InsuranceQuoteService {
         return "Your Insurance Quotation Saved.\n" +
                 "Search By Quotation Id : " + insuranceQuoteRepo.save(insuranceQuote).getId();
     }
-
+//Method to get insurance quotation by id which user filled
     public InsuranceQuoteOutputDto getQuotationById(Long id){
         InsuranceQuote insuranceQuote = insuranceQuoteRepo.findById(id).orElse(null);
         if(insuranceQuote == null){

@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class InsuranceQuoteController {
     @Autowired
     private InsuranceQuoteService insuranceQuoteService;
+
+//  API for Adding quotation details
     @PostMapping("/insurance-quotes")
     public ResponseEntity<String> addQuotation(@RequestBody InsuranceQuoteInputDto insuranceQuoteInputDto){
         return ResponseEntity.ok(insuranceQuoteService.addInsuranceQuote(insuranceQuoteInputDto));
     }
+//    API to get quotation details by id
     @GetMapping("/insurance-quotes/{id}")
     public ResponseEntity<?> getQuotationById(@PathVariable Long id){
         try{
